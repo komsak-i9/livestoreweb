@@ -3,6 +3,7 @@ package com.example.livestore;
 import com.example.livestore.ItemDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.logging.Level;
@@ -35,8 +36,24 @@ public class ItemDAOMySQL implements ItemDAO {
     }
 
     @Override
-    public ItemDTO get(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ItemDTO get(int id) {
+        ItemDTO dto = new ItemDTO();
+        try {
+            //
+            PreparedStatement pp = conn.prepareStatement("select * from mydb1.item where id=?");
+            pp.setInt(1, id);
+            ResultSet rs = pp.executeQuery();
+
+            if (rs.next()) {
+                dto.setId(rs.getInt("id"));
+                dto.setPrice(rs.getDouble("price"));
+                dto.setCost(rs.getDouble("cost"));
+            }
+            pp.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(ItemDAOMySQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return dto;
     }
 
     @Override
