@@ -12,7 +12,6 @@ and open the template in the editor.
     </head>
     <body>
         <span>Hello customer please choose what you want?</span>
-        <div><span>${item.type} price = ${item.price}<span></div>
-        <div><span>${item.type} cost price = ${item.cost}<span></div>
+        <div><span>Thank you</span></div>
     </body>
 </html>

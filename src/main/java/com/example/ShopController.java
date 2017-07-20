@@ -27,11 +27,17 @@ public class ShopController {
             conn = DriverManager.getConnection(mysqlJdbcUrl);
             ItemDAO doa = new ItemDAOMySQL(conn);
             ItemDTO item = doa.get(1);
-            model.addAttribute("model", item);
+            model.addAttribute("item", item);
         } catch (SQLException ex) {
 
             Logger.getLogger(Hello.class.getName()).log(Level.SEVERE, null, ex);
         }
         return "shop";
+    }
+    
+    @RequestMapping("/buy")
+    public String buyShirt(Model model){
+    
+       return "buy";
     }
 }

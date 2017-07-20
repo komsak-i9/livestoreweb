@@ -1,6 +1,5 @@
 package com.example.livestore;
 
-import com.example.livestore.ItemDTO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
