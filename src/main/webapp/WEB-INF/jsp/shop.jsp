@@ -12,6 +12,7 @@ and open the template in the editor.
     </head>
     <body>
         <span>Hello customer please choose what you want?</span>
-        <div><span>${model.type} price ${model.price}<span></div>
+        <div><span>${model.type} price = ${model.price}<span></div>
+             <div><span>${model.type} cost price = ${model.cost}<span></div>
     </body>
 </html>
