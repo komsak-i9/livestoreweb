@@ -22,10 +22,12 @@ public class ItemDAOMySQL implements ItemDAO {
     @Override
     public int insert(ItemDTO itemDTO) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
+       
         MapSqlParameterSource param = new MapSqlParameterSource();
         param.addValue("type", itemDTO.getType());
         param.addValue("price", itemDTO.getPrice());
         param.addValue("cost", itemDTO.getCost());
+        
         namedParameterJdbcTemplate.update("Insert into Item(type, price, cost) values(:type,:price,:cost)", param, keyHolder);
         return keyHolder.getKey().intValue();
     }
@@ -48,7 +50,17 @@ public class ItemDAOMySQL implements ItemDAO {
 
     @Override
     public void update(ItemDTO itemDTO) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        MapSqlParameterSource param = new MapSqlParameterSource();
+        param.addValue("type", itemDTO.getType());
+        param.addValue("price", itemDTO.getPrice());
+        param.addValue("cost", itemDTO.getCost());
+        param.addValue("id", itemDTO.getId());
+        
+        String sql = "Update mydb1.item set type=:type, "
+                    + "price=:price, cost =:cost where id=:id";
+        
+        namedParameterJdbcTemplate.update(sql, param);
     }
 
     @Override
