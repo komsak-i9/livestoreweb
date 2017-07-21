@@ -11,8 +11,12 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
-        <span>Hello customer please choose what you want?</span>
-        <div><span>${item.type} price = ${item.price}<span></div>
-        <div><span>${item.type} cost price = ${item.cost}<span></div>
+        <span>My Item list?</span>
+                <div><table>
+                        <th>type</th>
+                        <th>price</th>
+                        <th>cost</th>
+                        <tr><td>${item.type}</td><td>${item.price}</td><td>${item.cost}</td></tr>
+            </table></div>
     </body>
 </html>

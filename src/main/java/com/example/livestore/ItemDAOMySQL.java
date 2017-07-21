@@ -45,6 +45,7 @@ public class ItemDAOMySQL implements ItemDAO {
 
             if (rs.next()) {
                 dto.setId(rs.getInt("id"));
+                dto.setType(rs.getString("type"));
                 dto.setPrice(rs.getDouble("price"));
                 dto.setCost(rs.getDouble("cost"));
             }
