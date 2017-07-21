@@ -65,7 +65,10 @@ public class ItemDAOMySQL implements ItemDAO {
 
     @Override
     public void delete(int i) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+         String sql = "delete from mydb1.item  where id=:id";
+         MapSqlParameterSource param = new MapSqlParameterSource();
+         param.addValue("id", i);
+         namedParameterJdbcTemplate.update(sql, param);
     }
 
     private class ItemMapper implements RowMapper<ItemDTO> {
@@ -73,6 +76,7 @@ public class ItemDAOMySQL implements ItemDAO {
         @Override
         public ItemDTO mapRow(ResultSet rs, int i) throws SQLException {
             ItemDTO dto = new ItemDTO();
+            dto.setId(rs.getInt("id"));
             dto.setType(rs.getString("type"));
             dto.setPrice(rs.getDouble("price"));
             dto.setCost(rs.getDouble("cost"));
