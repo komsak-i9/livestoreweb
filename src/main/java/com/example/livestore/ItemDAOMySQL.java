@@ -16,10 +16,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ItemDAOMySQL implements ItemDAO {
-
-    @Autowired
-    DataSource dataSource;
- 
+    
     @Autowired
     NamedParameterJdbcTemplate namedParameterJdbcTemplate;
     
@@ -56,10 +53,6 @@ public class ItemDAOMySQL implements ItemDAO {
     @Override
     public void delete(int i) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private NamedParameterJdbcTemplate getNamedParameterJdbcTemplate() {
-     return   new NamedParameterJdbcTemplate(dataSource);
     }
 
     private class ItemMapper implements RowMapper<ItemDTO> {
