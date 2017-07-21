@@ -19,7 +19,7 @@ public class MyServiceRestController {
        return dao.getAll();
     }
     
-     @RequestMapping(path = "/items", method = {RequestMethod.DELETE})
+    @RequestMapping(path = "/items", method = {RequestMethod.DELETE})
     public String deleteItems(int id) {
         dao.delete(id);
         return "success";

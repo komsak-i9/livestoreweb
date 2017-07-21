@@ -14,7 +14,7 @@ public class ShopController {
     @Autowired
     ItemDAOMySQL doa;
     
-    @RequestMapping("/shop")
+    @RequestMapping("/pdf")
     public ModelAndView url2() {
         List<ItemDTO> item = doa.getAll();
         ModelAndView modelAndView = new ModelAndView();
