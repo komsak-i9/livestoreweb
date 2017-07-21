@@ -25,7 +25,7 @@ public class ShopController {
         Connection conn;
         try {
             conn = DriverManager.getConnection(mysqlJdbcUrl);
-            ItemDAO doa = new ItemDAOMySQL(conn);
+            ItemDAO doa = new ItemDAOMySQL();
             ItemDTO item = doa.get(1);
             model.addAttribute("item", item);
         } catch (SQLException ex) {

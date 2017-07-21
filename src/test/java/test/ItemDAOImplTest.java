@@ -32,7 +32,7 @@ public class ItemDAOImplTest {
 
     @Test
     public void testCreateMysql() {
-        ItemDAO itemDao = new ItemDAOMySQL(conn);
+        ItemDAO itemDao = new ItemDAOMySQL();
         ItemDTO dto = new ItemDTO();
         int rc = itemDao.insert(dto);
         Assert.assertEquals(1, rc);
