@@ -1,6 +1,6 @@
-package com.example.livestore;
+package com.example.livestore.data;
 
-import com.example.livestore.ItemDTO;
+import com.example.livestore.data.ItemDTO;
 import java.util.List;
 
 public interface ItemDAO {

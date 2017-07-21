@@ -1,4 +1,4 @@
-package com.example.livestore;
+package com.example.livestore.data;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

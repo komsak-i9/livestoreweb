@@ -1,4 +1,4 @@
-package com.example.livestore;
+package com.example.livestore.data;
 
 import java.io.Serializable;
 import lombok.Data;

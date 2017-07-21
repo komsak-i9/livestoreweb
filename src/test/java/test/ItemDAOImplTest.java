@@ -1,11 +1,11 @@
 package test;
 
-import com.example.livestore.ItemDAO;
-import com.example.livestore.ItemDAOMySQL;
+import com.example.livestore.data.ItemDAO;
+import com.example.livestore.data.ItemDAOMySQL;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import com.example.livestore.ItemDTO;
+import com.example.livestore.data.ItemDTO;
 import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
