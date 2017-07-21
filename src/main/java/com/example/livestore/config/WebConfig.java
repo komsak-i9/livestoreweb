@@ -12,7 +12,7 @@ import org.springframework.web.servlet.view.ContentNegotiatingViewResolver;
 @Configuration
 public class WebConfig extends WebMvcConfigurerAdapter{
     
-        @Bean
+    @Bean
     public ViewResolver contentNegotiatingViewResolver(ContentNegotiationManager manager) {
         ContentNegotiatingViewResolver resolver = new ContentNegotiatingViewResolver();
         resolver.setContentNegotiationManager(manager);
@@ -26,7 +26,7 @@ public class WebConfig extends WebMvcConfigurerAdapter{
         return resolver;
     }
     
-     @Bean
+    @Bean
     public ViewResolver pdfViewResolver() {
         return new PdfViewResolver();
     }
