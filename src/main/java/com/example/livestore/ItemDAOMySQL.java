@@ -7,26 +7,23 @@ import java.util.List;
 import java.util.Map;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.support.GeneratedKeyHolder;
 import org.springframework.jdbc.support.KeyHolder;
+import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ItemDAOMySQL implements ItemDAO {
 
-    NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-
     @Autowired
-    public void setNamedParameterJdbcTemplate(NamedParameterJdbcTemplate namedParameterJdbcTemplate) throws DataAccessException {
-            this.namedParameterJdbcTemplate = namedParameterJdbcTemplate;
-    }
+    DataSource dataSource;
+ 
+    @Autowired
+    NamedParameterJdbcTemplate namedParameterJdbcTemplate;
     
-    public ItemDAOMySQL() {
-        
-    }
-
     @Override
     public int insert(ItemDTO itemDTO) {
         KeyHolder keyHolder = new GeneratedKeyHolder();
@@ -60,6 +57,10 @@ public class ItemDAOMySQL implements ItemDAO {
     @Override
     public void delete(int i) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private NamedParameterJdbcTemplate getNamedParameterJdbcTemplate() {
+     return   new NamedParameterJdbcTemplate(dataSource);
     }
 
     private class ItemMapper implements RowMapper<ItemDTO> {
