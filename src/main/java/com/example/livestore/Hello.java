@@ -1,4 +1,4 @@
-package com.example;
+package com.example.livestore;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
