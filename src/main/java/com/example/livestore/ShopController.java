@@ -1,5 +1,6 @@
 package com.example.livestore;
 
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,8 +14,8 @@ public class ShopController {
     
     @RequestMapping("/shop")
     public String url2(Model model) {
-        ItemDTO item = doa.get(1);
-        model.addAttribute("item", item);
+        List<ItemDTO> item = doa.getAll();
+        model.addAttribute("items", item);
         return "shop";
     }
 }

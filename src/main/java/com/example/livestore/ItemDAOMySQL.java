@@ -5,7 +5,6 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
@@ -42,7 +41,9 @@ public class ItemDAOMySQL implements ItemDAO {
 
     @Override
     public List<ItemDTO> getAll() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        String sql = "select * from mydb1.item";
+        List<ItemDTO> items = namedParameterJdbcTemplate.query(sql, new ItemMapper());
+        return items;
     }
 
     @Override

@@ -1,9 +1,7 @@
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+
 <html>
     <head>
         <title>TODO supply a title</title>
@@ -16,7 +14,11 @@ and open the template in the editor.
                         <th>type</th>
                         <th>price</th>
                         <th>cost</th>
-                        <tr><td>${item.type}</td><td>${item.price}</td><td>${item.cost}</td></tr>
-            </table></div>
+                        
+                        <c:forEach var="item" items="${items}">
+                            <tr><td>${item.type}</td><td>${item.price}</td><td>${item.cost}</td></tr>
+                        </c:forEach>
+                    </table>
+                </div>
     </body>
 </html>
