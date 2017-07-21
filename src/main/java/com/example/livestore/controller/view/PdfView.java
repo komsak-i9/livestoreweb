@@ -21,8 +21,8 @@ public class PdfView extends AbstractPdfView {
         // change the file name
         response.setHeader("Content-Disposition", "attachment; filename=\"my-pdf-file.pdf\"");
 
-        List<ItemDTO> items = (List<ItemDTO>) model.get("users");
-        document.add(new Paragraph("Generated Users " + LocalDate.now()));
+        List<ItemDTO> items = (List<ItemDTO>) model.get("items");
+        document.add(new Paragraph("Generated items " + LocalDate.now()));
 
         PdfPTable table = new PdfPTable(4);
         table.setWidthPercentage(100.0f);
